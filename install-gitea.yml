@@ -1,0 +1,18 @@
+- name: "Install gitea"
+  hosts: localhost
+  roles:
+    - gitea
+  vars:
+    gitea_fqdn: 'student1-code.example.opentlc.com'
+    gitea_root_url: 'http://<FQDN>/gitea'
+    gitea_protocol: http
+    gitea_start_ssh: false
+    gitea_disable_registration: true
+    giteaadmin_user: gitea3
+    giteaadmin_password: '<PASSWORD>'
+    giteaadmin_email: '{{ giteaadmin_user }}@example.com'
+  tasks:
+    - name: create gitea user
+      command: /usr/local/bin/gitea admin user create --admin --username {{ giteaadmin_user }} --password {{ giteaadmin_password }} --email {{ giteaadmin_email }} -c /etc/gitea/gitea.ini
+      become: yes
+      become_user: gitea
