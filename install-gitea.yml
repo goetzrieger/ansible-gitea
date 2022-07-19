@@ -31,3 +31,11 @@
             proxy_set_header X-Forwarded-Proto $scheme;
             }
 
+    - name: Restart nginx
+      ansible.builtin.systemd:
+        state: restarted
+        #daemon_reload: yes
+        name: nginx
+
+
+
