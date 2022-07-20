@@ -1,0 +1,9 @@
+---
+gitea_fqdn: '<FQDN>
+gitea_root_url: 'http://<FQDN>/gitea'
+gitea_protocol: http
+gitea_start_ssh: false
+gitea_disable_registration: true
+giteaadmin_user: gitea
+giteaadmin_password: '<PASSWORD>'
+giteaadmin_email: 'gitea@example.com'
